@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Employee_Management_System.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,14 @@ namespace Employee_Management_System
 {
     public partial class Dashboard : UserControl
     {
+        EmployeeCRUD employeeCRUD = new EmployeeCRUD();
+       
         public Dashboard()
         {
             InitializeComponent();
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
+            TEmployee.Text = employeeCRUD.CountEmployees().ToString();
+            AEmployee.Text = employeeCRUD.CountActiveEmployees().ToString();
+            InEmployee.Text = employeeCRUD.CountInctiveEmployees().ToString();
         }
     }
 }

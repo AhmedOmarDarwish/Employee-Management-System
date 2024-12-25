@@ -89,7 +89,6 @@
             dataGridView1.RowHeadersWidth = 49;
             dataGridView1.Size = new Size(762, 206);
             dataGridView1.TabIndex = 12;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // label6
             // 
@@ -138,7 +137,6 @@
             Stuts_CBox.Name = "Stuts_CBox";
             Stuts_CBox.Size = new Size(230, 27);
             Stuts_CBox.TabIndex = 32;
-            Stuts_CBox.SelectedIndexChanged += Stuts_CBox_SelectedIndexChanged;
             // 
             // label7
             // 
@@ -169,7 +167,6 @@
             label5.TabIndex = 29;
             label5.Text = "Gender:";
             label5.TextAlign = ContentAlignment.MiddleCenter;
-            label5.Click += label5_Click;
             // 
             // Clear_Btn
             // 
@@ -230,7 +227,6 @@
             Add_Btn.TabIndex = 25;
             Add_Btn.Text = "Add";
             Add_Btn.UseVisualStyleBackColor = false;
-            Add_Btn.Click += Add_Btn_Click;
             // 
             // import_Btn
             // 

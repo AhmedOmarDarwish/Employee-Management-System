@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Employee_Management_System.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace Employee_Management_System
 {
     public partial class AddEmployee : UserControl
     {
+        EmployeeCRUD employeeCRUD  = new EmployeeCRUD();
         public AddEmployee()
         {
             InitializeComponent();
@@ -19,29 +21,11 @@ namespace Employee_Management_System
         }
         public void displayEmployeeData()
         {
-            // EmployeeData employeeData = new EmployeeData();
-            // List<EmployeeData> employeeDatas = employeeData.employeesListData();
-            //dataGridView1.DataSource = employeeDatas;
+            //EmployeeData employeeData = new EmployeeData();
+            //List<EmployeeData> employeeDatas = employeeData.employeesListData();
+            dataGridView1.DataSource = employeeCRUD.GetAll();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Add_Btn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Stuts_CBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
