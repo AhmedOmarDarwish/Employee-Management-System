@@ -5,11 +5,12 @@ namespace Employee_Management_System
 {
     public partial class Salary : UserControl
     {
-        EmployeeCRUD employeeCRUD;
-        public Salary()
+        EmployeeCRUD _employeeCRUD;
+
+        public Salary(EmployeeCRUD employeeCRUD)
         {
-            employeeCRUD = new EmployeeCRUD();
             InitializeComponent();
+            _employeeCRUD = employeeCRUD;
             DisplayEmployeeData();
         }
 
@@ -24,7 +25,7 @@ namespace Employee_Management_System
         }
         public void DisplayEmployeeData()
         {
-            EmpGridView.DataSource = employeeCRUD.GetActiveEmployees();
+            EmpGridView.DataSource = _employeeCRUD.GetActiveEmployees();
         }
 
         private void clearBtn_Click_1(object sender, EventArgs e)
@@ -67,7 +68,7 @@ namespace Employee_Management_System
                      "Confirmation Message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (check == DialogResult.Yes)
                     {
-                        employeeCRUD.UpdateSalary(new Employee()
+                        _employeeCRUD.UpdateSalary(new Employee()
                         {
                             EmployeeId = empIdTB.Text.Trim(),
                             FullName = empNameTB.Text.Trim(),

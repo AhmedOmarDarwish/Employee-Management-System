@@ -1,6 +1,6 @@
 ﻿namespace Employee_Management_System
 {
-    partial class AddEmployee
+    public partial class AddEmployee
     {
         /// <summary> 
         /// Required designer variable.

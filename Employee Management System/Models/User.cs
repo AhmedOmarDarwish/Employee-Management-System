@@ -9,7 +9,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Employee_Management_System.Models
 {
-    internal class User
+    public class User
     {
         [Key]
         public int Id { get; set; }

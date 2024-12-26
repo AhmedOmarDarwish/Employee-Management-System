@@ -1,22 +1,24 @@
-﻿namespace Employee_Management_System
+﻿using Employee_Management_System.Models;
+
+namespace Employee_Management_System
 {
     public partial class MainForm : Form
     {
-
+        //private readonly EmployeeCRUD _employeeCRUD;
 
         public MainForm(string userName)
         {
             InitializeComponent();
-            AddLayoutViews();
+            AddLayoutViews(new EmployeeCRUD());
             InitTimer();
             Current_User.Text = $"Welcome {userName}";
         }
 
-        private void AddLayoutViews()
+        private void AddLayoutViews(EmployeeCRUD employeeCRUD)
         {
-            dashboard1 = new Dashboard();
-            addEmployee1 = new AddEmployee();
-            salary1 = new Salary();
+            dashboard1 = new Dashboard(employeeCRUD);
+            addEmployee1 = new AddEmployee(employeeCRUD);
+            salary1 = new Salary(employeeCRUD);
             panel3.Controls.Add(dashboard1);
             panel3.Controls.Add(addEmployee1);
             panel3.Controls.Add(salary1);

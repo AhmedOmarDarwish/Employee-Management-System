@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Employee_Management_System.Models
 {
-    internal class EmployeeCRUD : IEntityCRUD<Employee>
+    public class EmployeeCRUD : IEntityCRUD<Employee>
     {
         private readonly CompanyDB _CompanyDB;
         public EmployeeCRUD()
@@ -71,7 +71,7 @@ namespace Employee_Management_System.Models
                 oldEmp.DateOfUpdate = newEntity.DateOfUpdate;
                 oldEmp.Position = newEntity.Position;
                 oldEmp.Image = newEntity.Image;
-                oldEmp.Salary = newEntity.Salary;
+             
                 
             }
 

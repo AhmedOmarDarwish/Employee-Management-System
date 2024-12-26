@@ -5,13 +5,13 @@ namespace Employee_Management_System
 {
     public partial class AddEmployee : UserControl
     {
-        EmployeeCRUD employeeCRUD;
+       private readonly EmployeeCRUD _employeeCRUD;
 
-        public AddEmployee()
+        public AddEmployee(EmployeeCRUD employeeCRUD)
         {
-            employeeCRUD = new EmployeeCRUD();
             InitializeComponent();
-            DisplayEmployeeData();
+            _employeeCRUD = employeeCRUD;
+            //DisplayEmployeeData();
             //startFieldsStatus();
             EmpPositionCBox();
             empPictureBox.ImageLocation = @"D:\DEPI\C#\Pro\Employee Management System\Employee Management System\Resources\account.png";
@@ -29,7 +29,7 @@ namespace Employee_Management_System
 
         public void DisplayEmployeeData()
         {
-            EmpGridView.DataSource = employeeCRUD.GetAll();
+            EmpGridView.DataSource = _employeeCRUD.GetAll();
         }
         private void EmpPositionCBox()
         {
@@ -66,7 +66,7 @@ namespace Employee_Management_System
                 MessageBoxIcon.Error);
 
             }
-            else if (employeeCRUD.GetEmployeeByEmpID(empIdTB.Text.Trim()) != null)
+            else if (_employeeCRUD.GetEmployeeByEmpID(empIdTB.Text.Trim()) != null)
             {
 
                 MessageBox.Show("The Employee ID already exists in the system. You can update the employee's information", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -77,7 +77,7 @@ namespace Employee_Management_System
 
                 try
                 {
-                    employeeCRUD.Insert(new Employee()
+                    _employeeCRUD.Insert(new Employee()
                     {
                         EmployeeId = empIdTB.Text.Trim(),
                         FullName = empNameTB.Text.Trim(),
@@ -121,7 +121,7 @@ namespace Employee_Management_System
                 MessageBoxIcon.Error);
 
             }
-            else if (employeeCRUD.GetEmployeeByEmpID(empIdTB.Text.Trim()) == null)
+            else if (_employeeCRUD.GetEmployeeByEmpID(empIdTB.Text.Trim()) == null)
             {
 
                 MessageBox.Show($"The Employee ID '{empIdTB.Text.Trim()}' does not exist in the system. Please insert the employee's information to add them to the system.",
@@ -138,7 +138,7 @@ namespace Employee_Management_System
                      "Confirmation Message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (check == DialogResult.Yes)
                     {
-                        employeeCRUD.Update(new Employee()
+                        _employeeCRUD.Update(new Employee()
                         {
                             EmployeeId = empIdTB.Text.Trim(),
                             FullName = empNameTB.Text.Trim(),
@@ -146,7 +146,7 @@ namespace Employee_Management_System
                             ContactNumber = empPhoneTB.Text.Trim(),
                             Position = (EmployeePosition)empPositionCBox.SelectedValue,
                             Image = empPictureBox.ImageLocation.ToString(),
-                            Salary = 0,
+                            //Salary = 0,
                             Status = activeRBtn.Checked ? "Active" : "Inactive",
                             DateOfUpdate = DateTime.Now,
                         });
@@ -187,7 +187,7 @@ namespace Employee_Management_System
                 MessageBoxIcon.Error);
 
             }
-            else if (employeeCRUD.GetEmployeeByEmpID(empIdTB.Text.Trim()) == null)
+            else if (_employeeCRUD.GetEmployeeByEmpID(empIdTB.Text.Trim()) == null)
             {
 
                 MessageBox.Show($"The Employee ID '{empIdTB.Text.Trim()}' does not exist in the system", "Employee Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -203,7 +203,7 @@ namespace Employee_Management_System
                     "Confirmation Message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (check == DialogResult.Yes)
                     {
-                        employeeCRUD.DeleteByEmpID(empIdTB.Text.Trim());
+                        _employeeCRUD.DeleteByEmpID(empIdTB.Text.Trim());
 
 
                         MessageBox.Show(

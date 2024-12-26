@@ -4,11 +4,12 @@ namespace Employee_Management_System
 {
     public partial class Dashboard : UserControl
     {
-        EmployeeCRUD employeeCRUD = new EmployeeCRUD();
+        EmployeeCRUD _employeeCRUD = new EmployeeCRUD();
 
-        public Dashboard()
+        public Dashboard(EmployeeCRUD employeeCRUD)
         {
             InitializeComponent();
+            _employeeCRUD = employeeCRUD;
             DisplayNumberOfEmp();
 
 
@@ -17,9 +18,9 @@ namespace Employee_Management_System
 
         public void DisplayNumberOfEmp()
         {
-            TEmployee.Text = employeeCRUD.CountEmployees().ToString();
-            AEmployee.Text = employeeCRUD.CountActiveEmployees().ToString();
-            InEmployee.Text = employeeCRUD.CountInctiveEmployees().ToString();
+            TEmployee.Text = _employeeCRUD.CountEmployees().ToString();
+            AEmployee.Text = _employeeCRUD.CountActiveEmployees().ToString();
+            InEmployee.Text = _employeeCRUD.CountInctiveEmployees().ToString();
         }
 
         protected override void OnVisibleChanged(EventArgs e)

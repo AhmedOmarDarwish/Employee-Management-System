@@ -17,7 +17,7 @@ namespace Employee_Management_System.Models
         HR,
         Sales
     }
-    internal class Employee
+    public class Employee
     {
         [Key]
         public int ID { get; set; }
