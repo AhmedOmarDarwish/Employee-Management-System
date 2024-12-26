@@ -73,7 +73,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(308, 400);
             panel1.TabIndex = 2;
-            panel1.Paint += panel1_Paint;
             // 
             // label9
             // 
@@ -132,7 +131,6 @@
             label1.TabIndex = 16;
             label1.Text = "Confirm Password :";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            label1.Click += label1_Click;
             // 
             // Signup_Btn
             // 
@@ -172,7 +170,6 @@
             Register_Password.PasswordChar = '*';
             Register_Password.Size = new Size(265, 30);
             Register_Password.TabIndex = 13;
-            Register_Password.TextChanged += Register_Password_TextChanged;
             // 
             // Register_username
             // 
@@ -215,7 +212,6 @@
             label2.TabIndex = 9;
             label2.Text = "Register Account";
             label2.TextAlign = ContentAlignment.MiddleCenter;
-            label2.Click += label2_Click;
             // 
             // Exit
             // 

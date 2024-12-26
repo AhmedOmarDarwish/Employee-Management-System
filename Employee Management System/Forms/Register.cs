@@ -29,16 +29,6 @@ namespace Employee_Management_System
             Application.Exit();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void login_signupBtn_Click(object sender, EventArgs e)
         {
             //Open Login Form
@@ -49,21 +39,11 @@ namespace Employee_Management_System
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void login_showPass_CheckedChanged(object sender, EventArgs e)
         {
             Register_Password.PasswordChar = register_showPass.Checked ? '\0' : '*';
             Register_Confirm_Password.PasswordChar = register_showPass.Checked ? '\0' : '*';
 
-
-        }
-
-        private void Register_Password_TextChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -94,7 +74,7 @@ namespace Employee_Management_System
                 if (user != null)
                 {
                     MessageBox.Show(
-                    userName + " is already taken  :(",
+                     $"UserName {userName} is already taken :(",
                     "Information Message",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Stop);
@@ -107,7 +87,7 @@ namespace Employee_Management_System
                         userCRUD.Insert(new User(userName, userPassword, today));
                         MessageBox.Show(
                         "Registered Successfully :)",
-                        "Information Message",
+                        "Success!",
                         MessageBoxButtons.OK,
                          MessageBoxIcon.Information);
 
@@ -119,7 +99,7 @@ namespace Employee_Management_System
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erorr: " + ex, "Erroe Message",
+                        MessageBox.Show("Error: " + ex, "Error Message",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 

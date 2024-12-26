@@ -34,9 +34,6 @@ namespace Employee_Management_System.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(11)");
 
-                    b.Property<DateTime>("DateOfDelete")
-                        .HasColumnType("date");
-
                     b.Property<DateTime>("DateOfInsert")
                         .HasColumnType("date");
 

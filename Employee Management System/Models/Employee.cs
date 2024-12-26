@@ -36,12 +36,12 @@ namespace Employee_Management_System.Models
         [Required]
         [Column(TypeName = "nvarchar(50)")]
         public EmployeePosition Position { get; set; }
-        [Required]
         [Column(TypeName = "nvarchar(max)")]
         public string Image { get; set; }
         [DefaultValue(0)]
         [Column(TypeName = "decimal(18,2)")]
         public double Salary { get; set; }
+        [Required]
         [DefaultValue("Active")]
         [Column(TypeName = "nvarchar(10)")]
         public string Status { get; set; }
@@ -49,7 +49,6 @@ namespace Employee_Management_System.Models
         public DateTime DateOfInsert { get; set; }
         [Column(TypeName = "date")]
         public DateTime DateOfUpdate { get; set; }
-        [Column(TypeName = "date")]
-        public DateTime DateOfDelete { get; set; }
+
     }
 }

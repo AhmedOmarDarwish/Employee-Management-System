@@ -67,7 +67,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1100, 50);
             panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
+       
             // 
             // label6
             // 
@@ -79,7 +79,6 @@
             label6.Size = new Size(228, 21);
             label6.TabIndex = 10;
             label6.Text = "Employee Mangment System";
-            label6.Click += label6_Click;
             // 
             // Exit
             // 
@@ -125,7 +124,6 @@
             label2.TabIndex = 20;
             label2.Text = "Sign Out";
             label2.TextAlign = ContentAlignment.MiddleCenter;
-            label2.Click += label2_Click;
             // 
             // Date_Time
             // 
@@ -137,7 +135,6 @@
             Date_Time.TabIndex = 19;
             Date_Time.Text = "Date & Time";
             Date_Time.TextAlign = ContentAlignment.MiddleCenter;
-            Date_Time.Click += Date_Time_Click;
             // 
             // pictureBox4
             // 
@@ -259,7 +256,6 @@
             Current_User.TabIndex = 10;
             Current_User.Text = "Welcome User";
             Current_User.TextAlign = ContentAlignment.MiddleCenter;
-            Current_User.Click += Current_User_Click;
             // 
             // pictureBox1
             // 
@@ -283,7 +279,6 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(850, 550);
             panel3.TabIndex = 2;
-            panel3.Paint += panel3_Paint;
             // 
             // dashboard1
             // 

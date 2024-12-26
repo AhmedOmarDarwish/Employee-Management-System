@@ -65,7 +65,7 @@ namespace Employee_Management_System
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erorr: " + ex, "Erroe Message",
+                    MessageBox.Show("Error: " + ex, "Error Message",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 

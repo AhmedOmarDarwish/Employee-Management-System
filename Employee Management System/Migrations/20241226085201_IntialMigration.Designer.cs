@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Employee_Management_System.Migrations
 {
     [DbContext(typeof(CompanyDB))]
-    [Migration("20241225172950_InitialMigration2")]
-    partial class InitialMigration2
+    [Migration("20241226085201_IntialMigration")]
+    partial class IntialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,9 +36,6 @@ namespace Employee_Management_System.Migrations
                     b.Property<string>("ContactNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(11)");
-
-                    b.Property<DateTime>("DateOfDelete")
-                        .HasColumnType("date");
 
                     b.Property<DateTime>("DateOfInsert")
                         .HasColumnType("date");

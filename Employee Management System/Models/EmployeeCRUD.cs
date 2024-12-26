@@ -23,6 +23,16 @@ namespace Employee_Management_System.Models
 
             }
         }
+        public void DeleteByEmpID(string empid)
+        {
+            var oldEmployee = GetEmplyoeeByEmpID(empid);
+            if (oldEmployee != null)
+            {
+                _CompanyDB.Employees.Remove(oldEmployee);
+                _CompanyDB.SaveChanges();
+
+            }
+        }
 
         public IEnumerable<Employee> GetAll()
         {
@@ -33,21 +43,55 @@ namespace Employee_Management_System.Models
         {
             return _CompanyDB.Employees.Where(emp => emp.ID == id).FirstOrDefault();
         }
+        public Employee GetEmplyoeeByEmpID(string empId)
+        {
+            return _CompanyDB.Employees.Where(emp => emp.EmployeeId == empId).FirstOrDefault();
+        }
 
         public void Insert(Employee newEntity)
         {
             _CompanyDB.Employees.Add(newEntity);
+            _CompanyDB.SaveChanges();
         }
 
         public void Update(Employee newEntity)
         {
-            var oldUser = _CompanyDB.Employees.AsNoTracking().FirstOrDefault(u => u.ID == newEntity.ID);
-            if (oldUser != null) { 
-            _CompanyDB.Entry(newEntity).State = EntityState.Modified;
-            _CompanyDB.SaveChanges();
-            }
-        }
+            //var oldUser = _CompanyDB.Employees.AsNoTracking().FirstOrDefault(u => u.EmployeeId == newEntity.EmployeeId);
+            //if (oldUser != null) {
+            //    _CompanyDB.Entry(newEntity).State = EntityState.Modified;
+            //    _CompanyDB.SaveChanges();
+            //}
 
+            var oldEmp = GetEmplyoeeByEmpID(newEntity.EmployeeId);
+            if (oldEmp != null) { 
+
+                oldEmp.FullName = newEntity.FullName;
+                oldEmp.ContactNumber = newEntity.ContactNumber;
+                oldEmp.Status = newEntity.Status;
+                oldEmp.Gender = newEntity.Gender;
+                oldEmp.DateOfUpdate = newEntity.DateOfUpdate;
+                oldEmp.Position = newEntity.Position;
+                oldEmp.Image = newEntity.Image;
+                oldEmp.Salary = newEntity.Salary;
+                
+            }
+
+
+            _CompanyDB.SaveChanges();
+        }
+        public void UpdateSalary(Employee newEntity)
+        {
+            var oldEmp = GetEmplyoeeByEmpID(newEntity.EmployeeId);
+            if (oldEmp != null)
+            {
+
+                oldEmp.FullName = newEntity.FullName;
+                oldEmp.DateOfUpdate = newEntity.DateOfUpdate;
+                oldEmp.Salary = newEntity.Salary;
+
+            }
+            _CompanyDB.SaveChanges();
+        }
         public int CountEmployees()
         {
             return _CompanyDB.Employees.Count();

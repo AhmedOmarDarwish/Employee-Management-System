@@ -21,6 +21,7 @@ namespace Employee_Management_System
             TEmployee.Text = employeeCRUD.CountEmployees().ToString();
             AEmployee.Text = employeeCRUD.CountActiveEmployees().ToString();
             InEmployee.Text = employeeCRUD.CountInctiveEmployees().ToString();
+            
         }
     }
 }

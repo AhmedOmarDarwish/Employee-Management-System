@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Employee_Management_System.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class IntialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -26,8 +26,7 @@ namespace Employee_Management_System.Migrations
                     Salary = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(10)", nullable: false),
                     DateOfInsert = table.Column<DateTime>(type: "date", nullable: false),
-                    DateOfUpdate = table.Column<DateTime>(type: "date", nullable: false),
-                    DateOfDelete = table.Column<DateTime>(type: "date", nullable: false)
+                    DateOfUpdate = table.Column<DateTime>(type: "date", nullable: false)
                 },
                 constraints: table =>
                 {

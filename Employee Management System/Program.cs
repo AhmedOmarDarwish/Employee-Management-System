@@ -27,7 +27,7 @@ namespace Employee_Management_System
 
                 // Seed data if necessary
                 var seeder = new DataSeeder(context);
-                seeder.SeedRandomData(5); // Seed 5 random employees
+                seeder.SeedRandomData(5); //5 random employees
             }
         }
 
