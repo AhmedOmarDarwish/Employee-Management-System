@@ -32,7 +32,7 @@ namespace Employee_Management_System.Data
                         Gender = random.Next(0, 2) == 0 ? "Male" : "Female",
                         ContactNumber = $"012{random.Next(10000000, 99999999)}",
                         Position = i % 2 == 0 ? EmployeePosition.Manager : EmployeePosition.Developer,
-                        Image = $@"C:\Users\3Mr\Pictures\image{i}.jpg",
+                        Image = @"D:\DEPI\C#\Pro\Employee Management System\Employee Management System\Resources\account.png",
                         Salary = Math.Round(random.NextDouble() * 10000, 2),
                         Status = i % 3 == 0 ? "Inactive" : "Active",
                         DateOfInsert = DateTime.Now,

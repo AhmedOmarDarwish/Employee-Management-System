@@ -1,13 +1,5 @@
 ﻿using Employee_Management_System.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace Employee_Management_System
 {
@@ -21,16 +13,23 @@ namespace Employee_Management_System
             DisplayEmployeeData();
         }
 
+        protected override void OnVisibleChanged(EventArgs e)
+        {
+            base.OnVisibleChanged(e);
+
+            if (Visible && !Disposing)
+            {
+                DisplayEmployeeData();
+            }
+        }
         public void DisplayEmployeeData()
         {
-            EmpGridView.DataSource = employeeCRUD.GetAll();
+            EmpGridView.DataSource = employeeCRUD.GetActiveEmployees();
         }
-
 
         private void clearBtn_Click_1(object sender, EventArgs e)
         {
             ClearFields();
-
         }
 
         private void EmpGridView_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -25,7 +25,7 @@ namespace Employee_Management_System.Models
         }
         public void DeleteByEmpID(string empid)
         {
-            var oldEmployee = GetEmplyoeeByEmpID(empid);
+            var oldEmployee = GetEmployeeByEmpID(empid);
             if (oldEmployee != null)
             {
                 _CompanyDB.Employees.Remove(oldEmployee);
@@ -33,17 +33,16 @@ namespace Employee_Management_System.Models
 
             }
         }
-
         public IEnumerable<Employee> GetAll()
         {
            return _CompanyDB.Employees.ToList();
         }
-
         public Employee GetEntityByID(int id)
         {
             return _CompanyDB.Employees.Where(emp => emp.ID == id).FirstOrDefault();
         }
-        public Employee GetEmplyoeeByEmpID(string empId)
+
+        public Employee? GetEmployeeByEmpID(string empId)
         {
             return _CompanyDB.Employees.Where(emp => emp.EmployeeId == empId).FirstOrDefault();
         }
@@ -62,7 +61,7 @@ namespace Employee_Management_System.Models
             //    _CompanyDB.SaveChanges();
             //}
 
-            var oldEmp = GetEmplyoeeByEmpID(newEntity.EmployeeId);
+            var oldEmp = GetEmployeeByEmpID(newEntity.EmployeeId);
             if (oldEmp != null) { 
 
                 oldEmp.FullName = newEntity.FullName;
@@ -81,7 +80,7 @@ namespace Employee_Management_System.Models
         }
         public void UpdateSalary(Employee newEntity)
         {
-            var oldEmp = GetEmplyoeeByEmpID(newEntity.EmployeeId);
+            var oldEmp = GetEmployeeByEmpID(newEntity.EmployeeId);
             if (oldEmp != null)
             {
 
@@ -99,6 +98,10 @@ namespace Employee_Management_System.Models
         public int CountActiveEmployees()
         {
             return _CompanyDB.Employees.Where(e => e.Status == "Active").Count();
+        }
+        public IEnumerable<Employee> GetActiveEmployees()
+        {
+            return _CompanyDB.Employees.Where(e => e.Status == "Active").ToList();
         }
 
         public int CountInctiveEmployees()

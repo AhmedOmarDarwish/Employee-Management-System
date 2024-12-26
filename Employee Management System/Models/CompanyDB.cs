@@ -19,11 +19,6 @@ namespace Employee_Management_System.Models
             optionsBuilder.UseSqlServer(@"Data Source = OMEN; Initial Catalog = CompanyDB; Integrated Security = True; Trust Server Certificate = True;");
         }
 
-        internal object AsNoTracking()
-        {
-            throw new NotImplementedException();
-        }
-
         public DbSet<Employee> Employees { get; set; }//Table Employees
         public DbSet<User> Users { get; set; }//Table User
 

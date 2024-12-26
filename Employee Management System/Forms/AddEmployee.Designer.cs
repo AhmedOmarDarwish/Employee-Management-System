@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddEmployee));
             panel1 = new Panel();
             EmpGridView = new DataGridView();
             label6 = new Label();
             panel2 = new Panel();
+            empNameTB = new TextBox();
             statusPanel = new Panel();
             inactiveRBtn = new RadioButton();
             activeRBtn = new RadioButton();
@@ -58,7 +59,6 @@
             label4 = new Label();
             empPhoneTB = new TextBox();
             label2 = new Label();
-            empSalaryTB = new TextBox();
             label1 = new Label();
             empIdTB = new TextBox();
             label3 = new Label();
@@ -86,14 +86,14 @@
             EmpGridView.AllowUserToAddRows = false;
             EmpGridView.AllowUserToDeleteRows = false;
             EmpGridView.BackgroundColor = Color.FromArgb(157, 178, 191);
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(39, 55, 77);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 8.765218F);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(157, 178, 191);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            EmpGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(39, 55, 77);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 8.765218F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(157, 178, 191);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            EmpGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             EmpGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             EmpGridView.EnableHeadersVisualStyles = false;
             EmpGridView.Location = new Point(18, 46);
@@ -120,6 +120,7 @@
             // 
             panel2.BackColor = Color.FromArgb(221, 230, 237);
             panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(empNameTB);
             panel2.Controls.Add(statusPanel);
             panel2.Controls.Add(genderPanel);
             panel2.Controls.Add(label13);
@@ -140,7 +141,6 @@
             panel2.Controls.Add(label4);
             panel2.Controls.Add(empPhoneTB);
             panel2.Controls.Add(label2);
-            panel2.Controls.Add(empSalaryTB);
             panel2.Controls.Add(label1);
             panel2.Controls.Add(empIdTB);
             panel2.Controls.Add(label3);
@@ -148,6 +148,16 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(800, 239);
             panel2.TabIndex = 0;
+            // 
+            // empNameTB
+            // 
+            empNameTB.Font = new Font("Microsoft Sans Serif", 10.0173912F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            empNameTB.Location = new Point(23, 92);
+            empNameTB.MaxLength = 50;
+            empNameTB.Multiline = true;
+            empNameTB.Name = "empNameTB";
+            empNameTB.Size = new Size(230, 30);
+            empNameTB.TabIndex = 2;
             // 
             // statusPanel
             // 
@@ -442,16 +452,6 @@
             label2.Text = "Phone Number :";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // empSalaryTB
-            // 
-            empSalaryTB.Font = new Font("Microsoft Sans Serif", 10.0173912F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            empSalaryTB.Location = new Point(22, 91);
-            empSalaryTB.MaxLength = 100;
-            empSalaryTB.Multiline = true;
-            empSalaryTB.Name = "empSalaryTB";
-            empSalaryTB.Size = new Size(230, 30);
-            empSalaryTB.TabIndex = 2;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -516,7 +516,6 @@
         private Label label4;
         private TextBox empPhoneTB;
         private Label label2;
-        private TextBox empNameTB;
         private Label label1;
         private TextBox empIdTB;
         private Label label3;
@@ -541,6 +540,6 @@
         private RadioButton activeRBtn;
         private Panel genderPanel;
         private Panel statusPanel;
-        private TextBox empSalaryTB;
+        private TextBox empNameTB;
     }
 }

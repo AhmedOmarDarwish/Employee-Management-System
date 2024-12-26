@@ -1,24 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Timers;
-using System.Windows.Forms;
-
-namespace Employee_Management_System
+﻿namespace Employee_Management_System
 {
     public partial class MainForm : Form
     {
+
+
         public MainForm(string userName)
         {
             InitializeComponent();
-            Date_Time.Text = DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss tt");
-            Current_User.Text = "Welcom " + userName;
+            AddLayoutViews();
+            InitTimer();
+            Current_User.Text = $"Welcome {userName}";
         }
+
+        private void AddLayoutViews()
+        {
+            dashboard1 = new Dashboard();
+            addEmployee1 = new AddEmployee();
+            salary1 = new Salary();
+            panel3.Controls.Add(dashboard1);
+            panel3.Controls.Add(addEmployee1);
+            panel3.Controls.Add(salary1);
+        }
+
+        private void InitTimer()
+        {
+            timer1.Interval = 1000;
+            timer1.Start();
+            timer1.Tick += (obj, eventArgs) =>
+            {
+                Date_Time.Text = DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss tt");
+            };
+        }
+
         private void Exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -52,7 +65,8 @@ namespace Employee_Management_System
         }
 
         private void Dashboard_Btn_Click_1(object sender, EventArgs e)
-        {;
+        {
+            
             dashboard1.Refresh();
 
             dashboard1.Visible = true;

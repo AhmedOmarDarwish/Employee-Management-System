@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             panel1 = new Panel();
             label6 = new Label();
@@ -45,16 +46,13 @@
             Current_User = new Label();
             pictureBox1 = new PictureBox();
             panel3 = new Panel();
-            dashboard1 = new Dashboard();
-            addEmployee1 = new AddEmployee();
-            salary1 = new Salary();
+            timer1 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -67,7 +65,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1100, 50);
             panel1.TabIndex = 0;
-       
             // 
             // label6
             // 
@@ -133,7 +130,6 @@
             Date_Time.Name = "Date_Time";
             Date_Time.Size = new Size(228, 27);
             Date_Time.TabIndex = 19;
-            Date_Time.Text = "Date & Time";
             Date_Time.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox4
@@ -271,38 +267,11 @@
             // 
             // panel3
             // 
-            panel3.Controls.Add(dashboard1);
-            panel3.Controls.Add(addEmployee1);
-            panel3.Controls.Add(salary1);
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(250, 50);
             panel3.Name = "panel3";
             panel3.Size = new Size(850, 550);
             panel3.TabIndex = 2;
-            // 
-            // dashboard1
-            // 
-            dashboard1.BackColor = Color.FromArgb(157, 178, 191);
-            dashboard1.Location = new Point(0, 0);
-            dashboard1.Name = "dashboard1";
-            dashboard1.Size = new Size(1018, 659);
-            dashboard1.TabIndex = 2;
-            // 
-            // addEmployee1
-            // 
-            addEmployee1.BackColor = Color.FromArgb(157, 178, 191);
-            addEmployee1.Location = new Point(0, 0);
-            addEmployee1.Name = "addEmployee1";
-            addEmployee1.Size = new Size(1018, 659);
-            addEmployee1.TabIndex = 1;
-            // 
-            // salary1
-            // 
-            salary1.BackColor = Color.FromArgb(157, 178, 191);
-            salary1.Location = new Point(0, 0);
-            salary1.Name = "salary1";
-            salary1.Size = new Size(1018, 659);
-            salary1.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -324,7 +293,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -349,5 +317,6 @@
         private Dashboard dashboard1;
         private AddEmployee addEmployee1;
         private Salary salary1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

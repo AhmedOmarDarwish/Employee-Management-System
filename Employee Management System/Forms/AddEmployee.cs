@@ -1,32 +1,32 @@
 ﻿using Employee_Management_System.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace Employee_Management_System
 {
     public partial class AddEmployee : UserControl
     {
-        EmployeeCRUD employeeCRUD = new EmployeeCRUD();
-        
+        EmployeeCRUD employeeCRUD;
+
         public AddEmployee()
         {
-            ;
+            employeeCRUD = new EmployeeCRUD();
             InitializeComponent();
             DisplayEmployeeData();
             //startFieldsStatus();
             EmpPositionCBox();
-
+            empPictureBox.ImageLocation = @"D:\DEPI\C#\Pro\Employee Management System\Employee Management System\Resources\account.png";
         }
+
+        protected override void OnVisibleChanged(EventArgs e)
+        {
+            base.OnVisibleChanged(e);
+
+            if(Visible && !Disposing)
+            {
+                DisplayEmployeeData();
+            }
+        }
+
         public void DisplayEmployeeData()
         {
             EmpGridView.DataSource = employeeCRUD.GetAll();
@@ -57,8 +57,7 @@ namespace Employee_Management_System
         {
             if (empIdTB.Text == ""
                || empNameTB.Text == ""
-               || empPhoneTB.Text == ""
-               || empPositionCBox.SelectedIndex == null)
+               || empPhoneTB.Text == "")
             {
                 MessageBox.Show(
                 "Please ensure all required fields are filled before proceeding",
@@ -67,7 +66,7 @@ namespace Employee_Management_System
                 MessageBoxIcon.Error);
 
             }
-            else if (employeeCRUD.GetEmplyoeeByEmpID(empIdTB.Text.Trim()) != null)
+            else if (employeeCRUD.GetEmployeeByEmpID(empIdTB.Text.Trim()) != null)
             {
 
                 MessageBox.Show("The Employee ID already exists in the system. You can update the employee's information", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -96,7 +95,7 @@ namespace Employee_Management_System
                      MessageBoxIcon.Information);
                     ClearFields();
                     DisplayEmployeeData();
-                    
+
 
                 }
                 catch (Exception ex)
@@ -122,7 +121,7 @@ namespace Employee_Management_System
                 MessageBoxIcon.Error);
 
             }
-            else if (employeeCRUD.GetEmplyoeeByEmpID(empIdTB.Text.Trim()) == null)
+            else if (employeeCRUD.GetEmployeeByEmpID(empIdTB.Text.Trim()) == null)
             {
 
                 MessageBox.Show($"The Employee ID '{empIdTB.Text.Trim()}' does not exist in the system. Please insert the employee's information to add them to the system.",
@@ -149,7 +148,7 @@ namespace Employee_Management_System
                             Image = empPictureBox.ImageLocation.ToString(),
                             Salary = 0,
                             Status = activeRBtn.Checked ? "Active" : "Inactive",
-                           DateOfUpdate = DateTime.Now,
+                            DateOfUpdate = DateTime.Now,
                         });
 
                         MessageBox.Show(
@@ -157,8 +156,8 @@ namespace Employee_Management_System
                          "Update Successful",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
-                             ClearFields();
-                             DisplayEmployeeData();
+                        ClearFields();
+                        DisplayEmployeeData();
 
                     }
 
@@ -179,8 +178,7 @@ namespace Employee_Management_System
         {
             if (empIdTB.Text == ""
              || empNameTB.Text == ""
-             || empPhoneTB.Text == ""
-             || empPositionCBox.SelectedIndex == null)
+             || empPhoneTB.Text == "")
             {
                 MessageBox.Show(
                 "Please select a row that you want to delete.",
@@ -189,7 +187,7 @@ namespace Employee_Management_System
                 MessageBoxIcon.Error);
 
             }
-            else if (employeeCRUD.GetEmplyoeeByEmpID(empIdTB.Text.Trim()) == null)
+            else if (employeeCRUD.GetEmployeeByEmpID(empIdTB.Text.Trim()) == null)
             {
 
                 MessageBox.Show($"The Employee ID '{empIdTB.Text.Trim()}' does not exist in the system", "Employee Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -275,7 +273,6 @@ namespace Employee_Management_System
                 var status = row.Cells[8].Value.ToString() == "Active" ? activeRBtn.Checked = true : inactiveRBtn.Checked = true;
             }
         }
-
 
 
     }
